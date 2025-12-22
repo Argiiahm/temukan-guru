@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Star, MapPin, Video, Users, ArrowRight } from "lucide-react";
+import { Star, MapPin, Video, ArrowRight } from "lucide-react";
 
 const tutors = [
   {
@@ -59,18 +59,18 @@ const tutors = [
 
 const TutorShowcase = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-12 px-4 sm:px-0">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 md:mb-2">
               Guru <span className="text-gradient">Terpopuler</span>
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground">
               Guru dengan rating tertinggi dan ulasan terbaik dari siswa.
             </p>
           </div>
-          <Button variant="outline" asChild>
+          <Button variant="outline" className="hidden sm:flex" asChild>
             <Link to="/cari-tutor">
               Lihat Semua
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -78,8 +78,8 @@ const TutorShowcase = () => {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tutors.map((tutor, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {tutors.map((tutor) => (
             <Link
               key={tutor.id}
               to={`/tutor/${tutor.id}`}
@@ -90,7 +90,7 @@ const TutorShowcase = () => {
                 <img
                   src={tutor.image}
                   alt={tutor.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {tutor.isOnline && (
                   <div className="absolute top-3 left-3 flex items-center gap-1 bg-accent text-accent-foreground px-2 py-1 rounded-lg text-xs font-medium">
@@ -101,39 +101,48 @@ const TutorShowcase = () => {
               </div>
 
               {/* Content */}
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <div>
-                  <h3 className="font-semibold text-foreground line-clamp-1">{tutor.name}</h3>
-                  <p className="text-sm text-primary font-medium">{tutor.subject}</p>
+                  <h3 className="font-semibold text-sm md:text-base text-foreground line-clamp-1">{tutor.name}</h3>
+                  <p className="text-xs md:text-sm text-primary font-medium">{tutor.subject}</p>
                 </div>
 
-                <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                  <MapPin className="h-3.5 w-3.5" />
-                  <span>{tutor.location}</span>
+                <div className="flex items-center gap-1 text-xs md:text-sm text-muted-foreground">
+                  <MapPin className="h-3 w-3 md:h-3.5 md:w-3.5" />
+                  <span className="line-clamp-1">{tutor.location}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 text-warning fill-warning" />
-                    <span className="font-semibold">{tutor.rating}</span>
-                    <span className="text-sm text-muted-foreground">({tutor.reviews})</span>
+                    <Star className="h-3.5 w-3.5 md:h-4 md:w-4 text-warning fill-warning" />
+                    <span className="font-semibold text-sm">{tutor.rating}</span>
+                    <span className="text-xs text-muted-foreground">({tutor.reviews})</span>
                   </div>
-                  <span className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-lg">
+                  <span className="text-xs bg-secondary text-secondary-foreground px-1.5 py-0.5 md:px-2 md:py-1 rounded-lg">
                     {tutor.level}
                   </span>
                 </div>
 
-                <div className="pt-3 border-t border-border flex items-center justify-between">
+                <div className="pt-2 md:pt-3 border-t border-border flex items-center justify-between">
                   <div>
-                    <span className="text-lg font-bold text-primary">
+                    <span className="text-base md:text-lg font-bold text-primary">
                       Rp {tutor.price.toLocaleString()}
                     </span>
-                    <span className="text-sm text-muted-foreground">/jam</span>
+                    <span className="text-xs md:text-sm text-muted-foreground">/jam</span>
                   </div>
                 </div>
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-6 text-center sm:hidden">
+          <Button variant="outline" className="w-full" asChild>
+            <Link to="/cari-tutor">
+              Lihat Semua Tutor
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
