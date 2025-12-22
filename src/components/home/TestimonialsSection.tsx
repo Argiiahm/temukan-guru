@@ -29,37 +29,37 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
       <div className="container-custom">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
             Apa Kata <span className="text-gradient">Mereka</span>?
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base md:text-lg">
             Testimoni dari siswa dan orang tua yang telah menggunakan BimbelKu.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="card-tutor relative">
-              <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10" />
+              <Quote className="absolute top-4 right-4 md:top-6 md:right-6 h-6 w-6 md:h-8 md:w-8 text-primary/10" />
               
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center gap-1 mb-3 md:mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-warning fill-warning" />
+                  <Star key={i} className="h-3.5 w-3.5 md:h-4 md:w-4 text-warning fill-warning" />
                 ))}
               </div>
 
-              <p className="text-foreground mb-6 leading-relaxed">"{testimonial.content}"</p>
+              <p className="text-sm md:text-base text-foreground mb-4 md:mb-6 leading-relaxed">"{testimonial.content}"</p>
 
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-semibold">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full gradient-primary flex items-center justify-center text-primary-foreground font-semibold text-sm md:text-base">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <div className="font-semibold">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  <div className="font-semibold text-sm md:text-base">{testimonial.name}</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</div>
                 </div>
               </div>
             </div>

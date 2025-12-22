@@ -5,10 +5,9 @@ import {
   Globe, 
   Atom, 
   FlaskConical, 
+  PenTool,
   Palette,
-  Music,
   Code,
-  PenTool
 } from "lucide-react";
 
 const subjects = [
@@ -24,29 +23,29 @@ const subjects = [
 
 const SubjectsSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-12 md:py-16 lg:py-20">
       <div className="container-custom">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
             Mata Pelajaran <span className="text-gradient">Populer</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base md:text-lg">
             Temukan guru untuk berbagai mata pelajaran dari SD hingga SMA.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
           {subjects.map((subject, index) => (
             <Link
               key={index}
               to={`/cari-tutor?subject=${subject.name.toLowerCase().replace(" ", "-")}`}
-              className="card-tutor group text-center p-6"
+              className="card-tutor group text-center p-4 md:p-6"
             >
-              <div className={`w-16 h-16 ${subject.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <subject.icon className="h-8 w-8 text-white" />
+              <div className={`w-12 h-12 md:w-16 md:h-16 ${subject.color} rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <subject.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
-              <h3 className="font-semibold text-foreground mb-1">{subject.name}</h3>
-              <p className="text-sm text-muted-foreground">{subject.count} Guru</p>
+              <h3 className="font-semibold text-sm md:text-base text-foreground mb-0.5 md:mb-1 line-clamp-1">{subject.name}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">{subject.count} Guru</p>
             </Link>
           ))}
         </div>
