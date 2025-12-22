@@ -272,3 +272,8 @@
 .animation-delay-400 {
   animation-delay: 400ms;
 }
+
+/* Safe area for iOS devices */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
