@@ -9,6 +9,7 @@ import TutorProfile from "./pages/TutorProfile";
 import DaftarMitra from "./pages/DaftarMitra";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import DashboardGuru from "./pages/DashboardGuru";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/daftar-mitra" element={<DaftarMitra />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard-guru" element={<DashboardGuru />} />
           <Route path="/admin" element={<AdminDashboard />} />
